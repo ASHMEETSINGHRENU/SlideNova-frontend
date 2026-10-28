@@ -1,0 +1,17 @@
+{"timestamp":"00:00:02.733","source":"Server","level":"LOG","message":"- Cache Components enabled"}
+{"timestamp":"00:00:02.734","source":"Server","level":"LOG","message":"- Partial Prefetching enabled"}
+{"timestamp":"00:00:02.734","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:22.749","source":"Server","level":"LOG","message":"○ Compiling / ..."}
+{"timestamp":"00:00:28.320","source":"Browser","level":"WARN","message":"THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."}
+{"timestamp":"00:00:28.407","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mTHREE.Clock: This module has been deprecated. Please use THREE.Timer instead.\\u001b[39m\" \"\\u001b[2m(src/components/hero/NovaScene3D.tsx:206:17)\\u001b[22m\""}
+{"timestamp":"00:00:28.407","source":"Browser","level":"WARN","message":"THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."}
+{"timestamp":"00:00:28.408","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mTHREE.Clock: This module has been deprecated. Please use THREE.Timer instead.\\u001b[39m\" \"\\u001b[2m(src/components/hero/NovaScene3D.tsx:206:17)\\u001b[22m\""}
+{"timestamp":"00:06:23.084","source":"Server","level":"LOG","message":"  Turbopack has seen frequent file updates and is waiting for the filesystem to settle (0.5s elapsed so far; last modified: \"\\\\\\\\?\\\\C:\\\\Users\\\\Ashmeet\\\\Music\\\\nova\\\\node_modules\\\\motion-dom\\\\dist\\\\es\\\\render\\\\utils\")."}
+{"timestamp":"00:06:24.072","source":"Server","level":"LOG","message":"  Turbopack has seen frequent file updates and is waiting for the filesystem to settle (1.5s elapsed so far; last modified: \"\\\\\\\\?\\\\C:\\\\Users\\\\Ashmeet\\\\Music\\\\nova\\\\node_modules\\\\motion-dom\\\\dist\\\\size-rollup-style-effect.js.map\")."}
+{"timestamp":"00:06:59.896","source":"Server","level":"LOG","message":"✓ Compiled in 90ms"}
+{"timestamp":"00:07:26.205","source":"Server","level":"LOG","message":"  Turbopack has seen frequent file updates and is waiting for the filesystem to settle (0.5s elapsed so far; last modified: \"\\\\\\\\?\\\\C:\\\\Users\\\\Ashmeet\\\\Music\\\\nova\\\\node_modules\\\\motion-dom\\\\dist\\\\es\\\\animation\\\\waapi\\\\easing\")."}
+{"timestamp":"00:07:26.523","source":"Server","level":"LOG","message":"✓ Compiled in 835ms"}
+{"timestamp":"00:10:20.914","source":"Browser","level":"WARN","message":"THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."}
+{"timestamp":"00:10:20.948","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mTHREE.Clock: This module has been deprecated. Please use THREE.Timer instead.\\u001b[39m\" \"\\u001b[2m(src/components/hero/NovaScene3D.tsx:206:17)\\u001b[22m\""}
+{"timestamp":"00:10:20.949","source":"Browser","level":"WARN","message":"THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."}
+{"timestamp":"00:10:20.953","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mTHREE.Clock: This module has been deprecated. Please use THREE.Timer instead.\\u001b[39m\" \"\\u001b[2m(src/components/hero/NovaScene3D.tsx:206:17)\\u001b[22m\""}

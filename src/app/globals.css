@@ -1,26 +1,191 @@
 @import "tailwindcss";
 
+@theme {
+  --color-obsidian: #09090D;
+  --color-violet: #7655F6;
+  --color-violet-hover: #6742eb;
+  --color-glow: #B5A1FF;
+  --color-glow-subtle: rgba(181, 161, 255, 0.15);
+  --color-silver: #E8E8F0;
+  --color-silver-muted: #9E9EB2;
+  --color-surface: #181820;
+  --color-surface-elevated: #20202B;
+  --color-surface-subtle: #111117;
+  --font-lexend: 'Lexend', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #09090D;
+  --foreground: #E8E8F0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #09090D;
+  color: #E8E8F0;
+  overflow-x: hidden;
+  selection-background-color: #7655F6;
+  selection-color: #ffffff;
+}
+
+::selection {
+  background: #7655F6;
+  color: #ffffff;
+}
+
+/* Custom glowing scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090D;
+}
+::-webkit-scrollbar-thumb {
+  background: #20202B;
+  border-radius: 4px;
+  border: 1px solid rgba(181, 161, 255, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7655F6;
+}
+
+/* Background grid effect */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(181, 161, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(181, 161, 255, 0.04) 1px, transparent 1px);
+}
+
+.cyber-grid-dense {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(118, 85, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(118, 85, 246, 0.06) 1px, transparent 1px);
+}
+
+/* Ambient Radial Glows */
+.radial-glow-violet {
+  background: radial-gradient(circle, rgba(118, 85, 246, 0.22) 0%, rgba(9, 9, 13, 0) 70%);
+}
+
+.radial-glow-glow {
+  background: radial-gradient(circle, rgba(181, 161, 255, 0.18) 0%, rgba(9, 9, 13, 0) 65%);
+}
+
+/* Liquid Metal Button Styles */
+.liquid-metal-btn {
+  position: relative;
+  background: linear-gradient(135deg, #181820 0%, #20202B 50%, #15151C 100%);
+  border: 1px solid rgba(181, 161, 255, 0.3);
+  box-shadow: 
+    0 0 15px rgba(118, 85, 246, 0.25),
+    inset 0 1px 1px rgba(232, 232, 240, 0.4),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.liquid-metal-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    transparent 0deg,
+    rgba(181, 161, 255, 0.3) 60deg,
+    transparent 120deg,
+    rgba(118, 85, 246, 0.4) 180deg,
+    transparent 240deg,
+    rgba(181, 161, 255, 0.25) 300deg,
+    transparent 360deg
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  animation: liquidRotate 6s linear infinite;
+}
+
+.liquid-metal-btn:hover::before {
+  opacity: 1;
+}
+
+.liquid-metal-btn:hover {
+  border-color: rgba(181, 161, 255, 0.7);
+  box-shadow: 
+    0 0 25px rgba(118, 85, 246, 0.45),
+    0 0 45px rgba(181, 161, 255, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.liquid-metal-primary {
+  background: linear-gradient(135deg, #7655F6 0%, #5d3ce3 60%, #4c2bc7 100%);
+  border: 1px solid rgba(181, 161, 255, 0.6);
+  box-shadow: 
+    0 0 20px rgba(118, 85, 246, 0.45),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.liquid-metal-primary:hover {
+  background: linear-gradient(135deg, #8767ff 0%, #6e4cf7 60%, #5835db 100%);
+  box-shadow: 
+    0 0 35px rgba(118, 85, 246, 0.65),
+    0 0 50px rgba(181, 161, 255, 0.35),
+    inset 0 1px 3px rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px) scale(1.02);
+}
+
+@keyframes liquidRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Glassmorphic border glow card */
+.glass-surface {
+  background: rgba(24, 24, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(181, 161, 255, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-surface:hover {
+  border-color: rgba(181, 161, 255, 0.35);
+  box-shadow: 
+    0 15px 35px -10px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(118, 85, 246, 0.15);
+}
+
+/* Glowing text gradient */
+.text-gradient-glow {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E8E8F0 40%, #B5A1FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #B5A1FF 0%, #7655F6 70%, #5835db 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pulse animation */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 4s ease-in-out infinite;
 }

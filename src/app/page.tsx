@@ -1,69 +1,87 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
+import { Navbar } from "@/components/navigation/Navbar";
+import { HeroSection } from "@/components/hero/HeroSection";
+import { AboutSection } from "@/components/about/AboutSection";
+import { ServicesSection } from "@/components/services/ServicesSection";
+import { PortfolioSection } from "@/components/portfolio/PortfolioSection";
+import { WhyChooseSection } from "@/components/why-choose-us/WhyChooseSection";
+import { ProcessSection } from "@/components/process/ProcessSection";
+import { VisionSection } from "@/components/vision/VisionSection";
+import { ContactSection } from "@/components/contact/ContactSection";
+import { Footer } from "@/components/footer/Footer";
+import { ProjectModal } from "@/components/modals/ProjectModal";
+import { PortfolioItem } from "@/lib/data";
 
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
+  const [inquiryService, setInquiryService] = useState<string>("Website Development");
+
+  const handleSelectService = (serviceName: string) => {
+    setInquiryService(serviceName);
+    const contactElem = document.getElementById("contact");
+    if (contactElem) {
+      contactElem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleStartSimilarProject = (projectName: string) => {
+    setInquiryService(projectName);
+    const contactElem = document.getElementById("contact");
+    if (contactElem) {
+      contactElem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleOpenContactModal = () => {
+    const contactElem = document.getElementById("contact");
+    if (contactElem) {
+      contactElem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="relative min-h-screen bg-[#09090D] text-[#E8E8F0] selection:bg-[#7655F6] selection:text-white font-sans antialiased">
+      {/* 1. Global Navigation Bar */}
+      <Navbar onOpenContactModal={handleOpenContactModal} />
+
+      {/* Main Page Flow */}
+      <main className="relative">
+        {/* Section 1: Hero */}
+        <HeroSection onOpenContactModal={handleOpenContactModal} />
+
+        {/* Section 2: About Nova */}
+        <AboutSection />
+
+        {/* Section 3: Our Services */}
+        <ServicesSection onSelectService={handleSelectService} />
+
+        {/* Section 4: Our Portfolio */}
+        <PortfolioSection onOpenProjectModal={setSelectedProject} />
+
+        {/* Section 5: Why Choose Nova? */}
+        <WhyChooseSection />
+
+        {/* Section 6: Our Process */}
+        <ProcessSection />
+
+        {/* Section 7: Our Vision */}
+        <VisionSection onOpenContactModal={handleOpenContactModal} />
+
+        {/* Section 8: Let's Work Together */}
+        <ContactSection initialService={inquiryService} />
       </main>
+
+      {/* Section 9: Footer */}
+      <Footer />
+
+      {/* Interactive Project Preview Modal */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+        onStartSimilarProject={handleStartSimilarProject}
+      />
     </div>
   );
 }

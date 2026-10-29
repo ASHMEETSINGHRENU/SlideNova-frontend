@@ -2,7 +2,7 @@
 
 @theme {
   --color-obsidian: #09090D;
-  --color-violet: #7655F6;
+  /* --color-violet: #7655F6; */
   --color-violet-hover: #6742eb;
   --color-glow: #B5A1FF;
   --color-glow-subtle: rgba(181, 161, 255, 0.15);
